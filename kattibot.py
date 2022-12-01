@@ -19,7 +19,8 @@ from telegram.ext import (
 FIN = pytz.timezone("Europe/Helsinki")
 
 
-CHATS = [1962469908]
+CHATS = [-1662405159]
+
 
 
 #define handlers
@@ -32,8 +33,11 @@ def start(update:Update, context:CallbackContext):
 
     context.bot.send_message(
         chat_id=update.effective_chat.id,
-        text= "@elijjjas is my creator. Message him instead."
+        text= "@elijjjas is my creator. Message him instead. Use /katti to get a cat pic"
     )
+
+def send_github_link(update:Update, context:CallbackContext):
+    update.message.reply_text("Sources at https://github.com/emuttaja/kattibot")
 
 def send_cat_to_groups(context:CallbackContext):
     """Get an ai generated picture of a random cat from
@@ -94,7 +98,7 @@ def main():
     job = updater.job_queue
 
     #add jobs
-    cat_time = datetime.time(hour=17, minute=43, tzinfo=FIN)
+    cat_time = datetime.time(hour=20, minute=00, tzinfo=FIN)
     daily_cat = job.run_daily(send_cat_to_groups, cat_time)
 
     #main loop
