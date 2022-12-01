@@ -11,7 +11,7 @@ Used to send daily random cat pictures from [thiscatdoesnotexist.com](https://th
 
 
 ### Run instructions
-`$ touch api_key.txt || echo "<bot's api key>" >> api_key.txt`
+`$ touch api_key.txt && echo "<bot's api key>" >> api_key.txt`
 
 With dockers:
 
